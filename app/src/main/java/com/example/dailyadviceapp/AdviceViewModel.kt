@@ -18,15 +18,31 @@ import kotlinx.coroutines.launch
 class AdviceViewModel @Inject constructor(
     private val repository: AdviceRepository,
 ) : ViewModel() {
-    var advice by mutableStateOf("初期値テスト")
+    var advice by mutableStateOf("")
         private set
 
+
+    fun loadAdvice() {
+        viewModelScope.launch {
+            try {
+                advice = ""
+                val response = repository.getAdvice()
+                advice = response.slip.advice// ViewModelに保存
+            } catch (e: Exception) {
+                advice = "エラー: ${e.message}"
+            }
+        }
+    }
+}
+
+    /*
     fun loadAdvice() {
         viewModelScope.launch {
             advice = repository.getAdvice().slip.advice
 
         }
-    }}
-
+    }
+}
+*/
 
 

@@ -1,4 +1,4 @@
-//BASE_URLとAdviceApiをつなぐ
+//BASE_URLとAdviceApiをつなぐ。Retrofit
 package com.example.dailyadviceapp
 
 import com.example.dailyadviceapp.Constants.BASE_URL
@@ -20,7 +20,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideAdviceApi(): AdviceApi {
-        return Retrofit.Builder()// Retrofit作成開始
+        return Retrofit.Builder()// Retrofit作成開始。Retrofitを初期化。
             .baseUrl(BASE_URL)//テンプレ↓
             .addConverterFactory(
                 MoshiConverterFactory.create(
@@ -31,7 +31,7 @@ object AppModule {
             .create(AdviceApi::class.java)//↑
 
     }
-    //PhotoRepository の作り方を Hilt に教えている
+    //AdviceRepository の作り方を Hilt に教えている
     @Provides
     @Singleton
     fun provideAdviceRepository(

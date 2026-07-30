@@ -20,7 +20,7 @@ fun DisplayAdvicesScreen(
     )
 
 */
-    viewModel: AdviceViewModel = hiltViewModel()
+    viewModel: AdviceViewModel
 ) {
 
     Text(

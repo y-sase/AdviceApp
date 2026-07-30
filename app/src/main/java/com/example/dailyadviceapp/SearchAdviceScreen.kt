@@ -16,9 +16,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun SearchAdviceScreen(
+    viewModel: AdviceViewModel,
     navController: NavController,//画面遷移
 ) {
-    val viewModel: AdviceViewModel = hiltViewModel()//Hiltさん、AdviceViewModelを作ってください！
+  //  val viewModel: AdviceViewModel = hiltViewModel()//Hiltさん、AdviceViewModelを作ってください！
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
