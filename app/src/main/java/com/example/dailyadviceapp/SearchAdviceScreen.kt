@@ -12,11 +12,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun SearchAdviceScreen(
     navController: NavController,//画面遷移
 ) {
+    val viewModel: AdviceViewModel = hiltViewModel()//Hiltさん、AdviceViewModelを作ってください！
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
@@ -40,7 +42,10 @@ fun SearchAdviceScreen(
 
         //取得ボタン
         Button(
-            onClick = { navController.navigate(ScreenRoute.DisplayAdviceScreen.route) },
+            onClick = {
+                viewModel.loadAdvice()
+                navController.navigate(ScreenRoute.DisplayAdviceScreen.route)
+                      },
             modifier = Modifier
                 .height(50.dp)
                 .width(250.dp),
