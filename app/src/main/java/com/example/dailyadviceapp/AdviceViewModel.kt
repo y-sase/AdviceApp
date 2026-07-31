@@ -22,12 +22,15 @@ class AdviceViewModel @Inject constructor(
         private set
 
 
-    fun loadAdvice() {
+    fun loadAdvice(
+        onSuccess: () -> Unit
+    ) {
         viewModelScope.launch {
             try {
                 advice = ""
                 val response = repository.getAdvice()
                 advice = response.slip.advice// ViewModelに保存
+                onSuccess()//取得成功後に画面遷移する
             } catch (e: Exception) {
                 advice = "エラー: ${e.message}"
             }

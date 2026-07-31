@@ -44,8 +44,11 @@ fun SearchAdviceScreen(
         //取得ボタン
         Button(
             onClick = {
-                viewModel.loadAdvice()
-                navController.navigate(ScreenRoute.DisplayAdviceScreen.route)
+                viewModel.loadAdvice {
+                    navController.navigate(
+                        ScreenRoute.DisplayAdviceScreen.route
+                    )
+                }
                       },
             modifier = Modifier
                 .height(50.dp)
