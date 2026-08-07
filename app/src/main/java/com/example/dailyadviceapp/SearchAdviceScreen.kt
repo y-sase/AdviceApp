@@ -58,7 +58,7 @@ fun SearchAdviceScreen(
                     viewModel.errorMessage = ""
                     viewModel.loadAdviceById(id) {
                         navController.navigate(
-                            ScreenRoute.DisplayAdviceScreen.route
+                            ScreenRoute.LoadingScreen.route
                         )
                     }
 
