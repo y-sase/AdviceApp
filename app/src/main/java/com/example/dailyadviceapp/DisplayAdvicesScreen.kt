@@ -2,11 +2,6 @@ package com.example.dailyadviceapp
 
 import androidx.compose.runtime.Composable
 import androidx.compose.material.Text
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.dailyadviceapp.Constants.BASE_URL
-
 
 
 @Composable

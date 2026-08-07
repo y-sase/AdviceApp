@@ -1,7 +1,10 @@
 //BASE_URLとAdviceApiをつなぐ。Retrofit
-package com.example.dailyadviceapp
+package com.example.dailyadviceapp.di
 
-import com.example.dailyadviceapp.Constants.BASE_URL
+import com.example.dailyadviceapp.AdviceApi
+import com.example.dailyadviceapp.repositiry.AdviceRepository
+import com.example.dailyadviceapp.AdviceRepositoryImpl
+import com.example.dailyadviceapp.common.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

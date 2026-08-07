@@ -1,6 +1,6 @@
 //APIの結果が成功したのか、失敗したのか、通信中なのか
 
-package com.example.dailyadviceapp
+package com.example.dailyadviceapp.common
 
 sealed class NetworkResponse<T>(
     val data: T? =null,

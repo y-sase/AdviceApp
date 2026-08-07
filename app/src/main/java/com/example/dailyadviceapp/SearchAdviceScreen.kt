@@ -3,6 +3,7 @@ package com.example.dailyadviceapp
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -12,7 +13,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.dailyadviceapp.components.SearchBar
+import com.example.dailyadviceapp.ui.theme.ScreenRoute
 
 @Composable
 fun SearchAdviceScreen(
@@ -38,24 +40,57 @@ fun SearchAdviceScreen(
 
         //検索欄
 
+        SearchBar(
+            searchText = viewModel.query,
+            onSearchTextChanged = {
+                viewModel.query = it
+            },
+            onDone = {
 
-        Spacer(modifier = Modifier.height(80.dp))
+                val id = viewModel.query.toIntOrNull()
 
-        //取得ボタン
-        Button(
-            onClick = {
-                viewModel.loadAdvice {
-                    navController.navigate(
-                        ScreenRoute.DisplayAdviceScreen.route
-                    )
+                if (id == null) {
+
+                    viewModel.errorMessage = "エラー：数字を入力してください"
+
+                } else {
+
+                    viewModel.errorMessage = ""
+                    viewModel.loadAdviceById(id) {
+                        navController.navigate(
+                            ScreenRoute.DisplayAdviceScreen.route
+                        )
+                    }
+
                 }
-                      },
+            }
+        )
+        Text(
+            text = viewModel.errorMessage,
+            color = Color.Red
+        )
+
+
+        Spacer(
+            modifier = Modifier.height(80.dp)
+        )
+           Spacer (modifier = Modifier.height(80.dp))
+
+                    //取得ボタン
+                    Button (
+                    onClick = {
+
+                            navController.navigate(
+                                ScreenRoute.LoadingScreen.route
+                            )
+
+                    },
             modifier = Modifier
                 .height(50.dp)
                 .width(250.dp),
             colors = ButtonDefaults.buttonColors(
                 backgroundColor = Color(0xFFF85F6A)
-            ),
+            )
 
 
             ) {
