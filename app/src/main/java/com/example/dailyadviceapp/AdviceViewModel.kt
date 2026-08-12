@@ -1,5 +1,7 @@
 package com.example.dailyadviceapp
 
+import android.R
+
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,6 +24,7 @@ class AdviceViewModel @Inject constructor(
     var query by mutableStateOf("")
     var errorMessage by mutableStateOf("")
 
+    var adviceId by mutableStateOf(0)
 
 
     fun loadAdvice(
@@ -33,6 +36,8 @@ class AdviceViewModel @Inject constructor(
                 val response = repository.getAdvice()
 
                 advice = response.slip.advice// ViewModelに保存
+                adviceId = response.slip.id
+
                 onSuccess()//取得成功後に画面遷移する
             } catch (e: Exception) {
                 advice = "エラー: ${e.message}"
@@ -51,6 +56,7 @@ class AdviceViewModel @Inject constructor(
                 val response = repository.getAdviceById(id)
 
                 advice = response.slip.advice
+                adviceId = response.slip.id
 
                 onSuccess()
 

@@ -15,6 +15,8 @@
         android:theme="@style/Theme.DailyAdviceApp"
         tools:targetApi="31">
         <activity
+            android:name=".use_case.DisplayAdviceActivity" />
+        <activity
             android:name=".ui.theme.MainActivity"
             android:exported="true"
             android:label="@string/app_name"

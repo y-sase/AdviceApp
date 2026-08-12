@@ -56,12 +56,22 @@ fun SearchAdviceScreen(
                 } else {
 
                     viewModel.errorMessage = ""
+
+                   /*
                     viewModel.loadAdviceById(id) {
+
                         navController.navigate(
                             ScreenRoute.LoadingScreen.route
                         )
                     }
 
+                    */
+
+                    viewModel.query = id.toString()
+                    navController.navigate(
+                                ScreenRoute.LoadingScreen.route
+
+                    )
                 }
             }
         )

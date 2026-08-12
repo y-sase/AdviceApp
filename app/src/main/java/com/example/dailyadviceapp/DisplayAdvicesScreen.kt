@@ -1,5 +1,6 @@
 package com.example.dailyadviceapp
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.material.Text
 
@@ -15,16 +16,28 @@ fun DisplayAdvicesScreen(
     )
 
 */
-    viewModel: AdviceViewModel
+   // viewModel: AdviceViewModel
+    advice: String,
+    id: Int
+
 ) {
 
+    /*
     Text(
 
-        text = viewModel.advice
+        text =
+            viewModel.advice
     )
+   */
+        Column {
+            Text(text = "ID: $id　のアドバイスです")
+            Text(text = advice)
+        }
+    }
 
 
-}
+
+
 
 
 

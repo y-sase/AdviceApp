@@ -57,20 +57,22 @@ class MainActivity : ComponentActivity() {
                         )
                     }
 
+                    /*
 
                     //名言詳細表示画面
 
                     composable(route = ScreenRoute.DisplayAdviceScreen.route) {
                         DisplayAdvicesScreen(
-                            viewModel = adviceViewModel
+                            //viewModel = adviceViewModel
                         )
 
 
+                        */
                     }
                 }
             }
         }
     }
-}
+
 
 
